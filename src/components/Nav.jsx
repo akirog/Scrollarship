@@ -1,0 +1,12 @@
+import { NavLink } from 'react-router'
+
+function Nav() {
+    return (
+        <header>
+            <nav>
+                <NavLink to='/explore'>Explore</NavLink>
+            </nav>
+        </header>
+    )
+}
+export default Nav
