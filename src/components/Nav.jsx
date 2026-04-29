@@ -5,6 +5,7 @@ function Nav() {
         <header>
             <nav>
                 <NavLink to='/explore'>Explore</NavLink>
+                <NavLink to='/login'>Login</NavLink>
             </nav>
         </header>
     )
