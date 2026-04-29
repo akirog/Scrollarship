@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-async function loginUser() {
+async function loginUser(username, password) {
+    let credentials = {
+        username: username,
+        password: password,
+    }
+
     return fetch('http://localhost:8080/login', {
         method: 'POST',
         headers: {
