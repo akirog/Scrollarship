@@ -10,7 +10,6 @@ function App() {
         <Routes>
           <Route path='/' element={<Nav />} />
           <Route path='/explore' element={<h1>Welcome to explore!</h1>} />
-          <Route path='/login' element={<Login />}/>
         </Routes>
       </BrowserRouter>
     </>
