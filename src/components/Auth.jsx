@@ -7,7 +7,7 @@ const supabase = createClient(
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
 )
 
-function Login() {
+function Auth() {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [claims, setClaims] = useState(null)
@@ -87,18 +87,18 @@ function Login() {
   // Show verification state
   if (verifying) {
     return (
-      <div>
+      <>
         <h1>Authentication</h1>
         <p>Confirming your magic link...</p>
         <p>Loading...</p>
-      </div>
+      </>
     )
   }
 
   // Show auth error
   if (authError) {
     return (
-      <div>
+      <>
         <h1>Authentication</h1>
         <p>✗ Authentication failed</p>
         <p>{authError}</p>
@@ -110,37 +110,37 @@ function Login() {
         >
           Return to login
         </button>
-      </div>
+      </>
     )
   }
 
   // Show auth success (briefly before claims load)
   if (authSuccess && !claims) {
     return (
-      <div>
+      <>
         <h1>Authentication</h1>
         <p>✓ Authentication successful!</p>
         <p>Loading your account...</p>
-      </div>
+      </>
     )
   }
 
   // If user is logged in, show welcome screen
   if (claims) {
     return (
-      <div>
+      <>
         <h1>Welcome!</h1>
         <p>You are logged in as: {claims.email}</p>
         <button onClick={handleLogout}>Sign Out</button>
-      </div>
+      </>
     )
   }
 
   // Show login form
   return (
-    <div>
-      <h1>Supabase + React</h1>
-      <p>Sign in via magic link with your email below</p>
+    <>
+      <h1>Sign In</h1>
+      <p>Send a magic link to your email below</p>
       <form onSubmit={handleLogin}>
         <input
           type="email"
@@ -153,8 +153,8 @@ function Login() {
           {loading ? <span>Loading</span> : <span>Send magic link</span>}
         </button>
       </form>
-    </div>
+    </>
   )
 }
 
-export default Login
+export default Auth
