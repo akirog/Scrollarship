@@ -1,25 +1,17 @@
 import { NavLink } from 'react-router'
+import Login from './Auth'
 
 function Nav() {
     return (
         <header>
             <nav>
-                <NavLink to='/login'>Login</NavLink>
-                <NavLink to='/login'>Sign Up</NavLink>
-                <NavLink to='/account'>Account</NavLink>
-            </nav>
-            <div>
-                <div>
-                    <h1>Learn Better Faster</h1>
-                    <p>
-                        Scrollarship is a platform tailored for teens wanting to improve their academic performance through interactive and visual learning
-                    </p>
-                    <NavLink to='/explore'>Get Started</NavLink>
+                <img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' />
+                <div className='signInContainer'>
+                    <button>
+                        <NavLink to='/auth'>Sign In</NavLink>
+                    </button>
                 </div>
-
-            </div>
-
-
+            </nav>
         </header>
     )
 }
