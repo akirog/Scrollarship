@@ -6,6 +6,7 @@ function Nav() {
             <nav>
                 <NavLink to='/login'>Login</NavLink>
                 <NavLink to='/login'>Sign Up</NavLink>
+                <NavLink to='/account'>Account</NavLink>
             </nav>
             <div>
                 <div>
