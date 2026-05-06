@@ -15,11 +15,14 @@ function App() {
           <Route path='/explore' element={<h1>Welcome to explore!</h1>} />
           <Route path='/account' element={<Account/>}/>
           <Route path='/auth' element={
+            <>
+            <Nav />
             <div className='auth'>
               <div className='authContainer'>
                 <Auth />
               </div>
             </div>
+            </>
           }/>
         </Routes>
       </BrowserRouter>

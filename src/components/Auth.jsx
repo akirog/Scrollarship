@@ -129,14 +129,7 @@ function Auth() {
   // If user is logged in, show welcome screen
   if (claims) {
     return (
-      <>
-          <Nav/>
-          <div className="authContainer">
-            <h1>Welcome!</h1>
-            <p>You are logged in as: {claims.email}</p>
-            <button onClick={handleLogout}>Sign Out</button>
-          </div>
-      </>
+          <Nav logged_in={true}/>
     )
   }
 
