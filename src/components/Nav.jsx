@@ -5,7 +5,7 @@ function Nav() {
     return (
         <header>
             <nav>
-                <img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' />
+                <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
                 <div className='signInContainer'>
                     <button>
                         <NavLink to='/auth'>Sign In</NavLink>

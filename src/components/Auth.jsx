@@ -1,6 +1,7 @@
 // Code acquired from https://supabase.com/docs/guides/auth/quickstarts/react
 import { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
+import Nav from "./Nav.jsx";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -68,7 +69,7 @@ function Auth() {
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: window.location.origin,
+        emailRedirectTo: window.location.origin + '/auth',
       },
     })
     if (error) {
@@ -129,9 +130,12 @@ function Auth() {
   if (claims) {
     return (
       <>
-        <h1>Welcome!</h1>
-        <p>You are logged in as: {claims.email}</p>
-        <button onClick={handleLogout}>Sign Out</button>
+          <Nav/>
+          <div className="authContainer">
+            <h1>Welcome!</h1>
+            <p>You are logged in as: {claims.email}</p>
+            <button onClick={handleLogout}>Sign Out</button>
+          </div>
       </>
     )
   }
