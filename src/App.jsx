@@ -9,21 +9,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={
-            <Nav />
-          }/>
-          <Route path='/explore' element={<h1>Welcome to explore!</h1>} />
           <Route path='/account' element={<Account/>}/>
-          <Route path='/auth' element={
-            <>
-            <Nav />
-            <div className='auth'>
-              <div className='authContainer'>
-                <Auth />
-              </div>
-            </div>
-            </>
-          }/>
+          <Route path='/auth' element={<Auth />}/>
+          <Route path='/' element={<Scroll />} />
         </Routes>
       </BrowserRouter>
     </>
