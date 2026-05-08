@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router'
-import Nav from './components/Nav'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router'
 import Auth from './components/Auth'
 import Account from './components/Account'
+import Scroll from './components/Scroll'
 import './App.css'
 
 function App() {
@@ -9,18 +9,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={
-            <Nav />
-          }/>
-          <Route path='/explore' element={<h1>Welcome to explore!</h1>} />
-          <Route path='/account' element={<Account/>}/>
-          <Route path='/auth' element={
-            <div className='auth'>
-              <div className='authContainer'>
-                <Auth />
-              </div>
-            </div>
-          }/>
+          <Route path='/account' element={<Account />}/>
+          <Route path='/auth' element={<Auth />}/>
+          <Route path='/' element={<Scroll />} />
         </Routes>
       </BrowserRouter>
     </>

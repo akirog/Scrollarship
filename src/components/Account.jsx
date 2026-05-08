@@ -1,18 +1,13 @@
-import { NavLink } from 'react-router'
+import Nav from './Nav'
+import User from './User'
 
-function Nav() {
+function Account() {
     return (
-        <header>
-            <nav>
-                <NavLink to='/login'>Login</NavLink>
-                <NavLink to='/login'>Sign Up</NavLink>
-            </nav>
-            <div>
-                <h1>This yo account type shit</h1>
-            </div>
-
-
-        </header>
+        <>
+            <Nav />
+            <User />
+        </>
     )
 }
+
 export default Nav
