@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router'
-import Nav from './components/Nav'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router'
 import Auth from './components/Auth'
 import Account from './components/Account'
+import Scroll from './components/Scroll'
 import './App.css'
 
 function App() {
