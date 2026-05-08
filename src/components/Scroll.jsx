@@ -1,8 +1,13 @@
+import { RiyilsViewer } from 'react-riyils'
+
 function Scroll() {
     return (
-        <>
-            <h1>Test!</h1>
-        </>
+    <RiyilsViewer
+        videos={["/src/assets/WIPbussen.mp4"]}
+        initialIndex={0}
+        onClose={() => setViewer(false)}
+        controls={viewerControls}
+    />
     )
 }
 

@@ -9,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/account' element={<Account/>}/>
+          <Route path='/account' element={<Account />}/>
           <Route path='/auth' element={<Auth />}/>
           <Route path='/' element={<Scroll />} />
         </Routes>

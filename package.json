@@ -14,6 +14,7 @@
     "prop-types": "^15.8.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-riyils": "^2.58.0",
     "react-router-dom": "^7.14.2",
     "reactjs-popup": "^2.0.6"
   },
