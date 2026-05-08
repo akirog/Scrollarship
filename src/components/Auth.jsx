@@ -11,125 +11,43 @@ const supabase = createClient(
 function Auth() {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [claims, setClaims] = useState(null)
 
-  // Check URL params on initial render
-  const params = new URLSearchParams(window.location.search)
-  const hasTokenHash = params.get('token_hash')
 
-  const [verifying, setVerifying] = useState(!!hasTokenHash)
-  const [authError, setAuthError] = useState(null)
-  const [authSuccess, setAuthSuccess] = useState(false)
-
-  useEffect(() => {
-    // Check if we have token_hash in URL (magic link callback)
-    const params = new URLSearchParams(window.location.search)
-    const token_hash = params.get('token_hash')
-    const type = params.get('type')
-
-    if (token_hash) {
-      // Verify the OTP token
-      supabase.auth
-        .verifyOtp({
-          token_hash,
-          type: type || 'email',
-        })
-        .then(({ error }) => {
-          if (error) {
-            setAuthError(error.message)
-          } else {
-            setAuthSuccess(true)
-            // Clear URL params
-            window.history.replaceState({}, document.title, '/')
-          }
-          setVerifying(false)
-        })
-    }
-
-    // Check for existing session using getClaims
-    supabase.auth.getClaims().then(({ data: { claims } }) => {
-      setClaims(claims)
-    })
-
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(() => {
-      supabase.auth.getClaims().then(({ data: { claims } }) => {
-        setClaims(claims)
-      })
-    })
-
-    return () => subscription.unsubscribe()
-  }, [])
-
-  const handleLogin = async (event) => {
+  const handleLogin = async (event)=>{
     event.preventDefault()
     setLoading(true)
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        emailRedirectTo: window.location.origin + '/auth',
-      },
-    })
+
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+
     if (error) {
-      alert(error.error_description || error.message)
-    } else {
-      alert('Check your email for the login link!')
+      // try registering instead
+      const { error: signUpError } = await supabase.auth.signUp({ email, password })
+      console.log(signUpError)
     }
+
     setLoading(false)
   }
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
-    setClaims(null)
-  }
 
-  // Show verification state
-  if (verifying) {
-    return (
-      <>
-        <h1>Authentication</h1>
-        <p>Confirming your magic link...</p>
-        <p>Loading...</p>
-      </>
-    )
-  }
+  useEffect(() => {
+    supabase.auth.getClaims().then(({ data: { claims } }) => setClaims(claims))
 
-  // Show auth error
-  if (authError) {
-    return (
-      <>
-        <h1>Authentication</h1>
-        <p>✗ Authentication failed</p>
-        <p>{authError}</p>
-        <button
-          onClick={() => {
-            setAuthError(null)
-            window.history.replaceState({}, document.title, '/')
-          }}
-        >
-          Return to login
-        </button>
-      </>
-    )
-  }
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      supabase.auth.getClaims().then(({ data: { claims } }) => setClaims(claims))
+    })
 
-  // Show auth success (briefly before claims load)
-  if (authSuccess && !claims) {
-    return (
-      <>
-        <h1>Authentication</h1>
-        <p>✓ Authentication successful!</p>
-        <p>Loading your account...</p>
-      </>
-    )
-  }
+    return () => subscription.unsubscribe()
+
+
+  }, [])
+
 
   // If user is logged in, show welcome screen
   if (claims) {
     return (
-          <Nav logged_in={true}/>
+        <Nav logged_in={true}/>
     )
   }
 
@@ -137,7 +55,6 @@ function Auth() {
   return (
     <>
       <h1>Sign In</h1>
-      <p>Send a magic link to your email below</p>
       <form onSubmit={handleLogin}>
         <input
           type="email"
@@ -146,8 +63,15 @@ function Auth() {
           required={true}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          required={true}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button disabled={loading}>
-          {loading ? <span>Loading</span> : <span>Send magic link</span>}
+          {loading ? <span>Loading</span> : <span>Log in</span>}
         </button>
       </form>
     </>
