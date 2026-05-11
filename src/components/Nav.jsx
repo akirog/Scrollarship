@@ -20,7 +20,7 @@ function Nav() {
                     <div className='signInContainer'>
                     </div>
 
-                    <h1>Wallahi du er logged in</h1>
+                    <img src="/assets/BOFILEPICTURE.png"></img>
 
                 </nav>
             </header>
