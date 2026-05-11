@@ -1,18 +1,29 @@
 import { NavLink } from 'react-router'
-import Login from './Auth'
-import {createClient} from "@supabase/supabase-js";
+import { supabase } from '../supabase.js'
+import {useEffect, useState} from "react";
 
-const supabase = createClient(
-    import.meta.env.VITE_SUPABASE_URL,
-    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
-)
 
 
 function Nav() {
 
+    const [loading, setLoading] = useState(true);
+    const [claims, setClaims] = useState(null)
 
-    var claims = supabase.auth.getClaims()
 
+    useEffect(() => {
+        supabase.auth.getClaims().then(({ data: { claims } }) => setClaims(claims))
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+            supabase.auth.getClaims().then(({ data: { claims } }) => setClaims(claims))
+            setLoading(false)
+        })
+
+        return () => subscription.unsubscribe()
+
+
+    }, [])
+
+    if (loading) return null
 
     if (claims) {
         return (
@@ -23,6 +34,9 @@ function Nav() {
                     </div>
 
                     <h1>Wallahi du er logged in</h1>
+                    <button
+                        onClick={() => supabase.auth.signOut().then(() => window.location.reload())}
+                    >Log out type shi</button>
 
                 </nav>
             </header>
