@@ -12,7 +12,7 @@ function User() {
 
     useEffect(() => {
         supabase.auth.getClaims().then(({data}) => {
-            if (!data?.claims?.sid) {
+            if (!data?.claims) {
                 navigate('/auth')
             }
         })
