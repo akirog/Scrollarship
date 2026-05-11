@@ -1,16 +1,29 @@
 import { NavLink } from 'react-router'
-import Login from './Auth'
-import {createClient} from "@supabase/supabase-js";
-import './Nav.css'
+import { supabase } from '../supabase.js'
+import {useEffect, useState} from "react";
 
-const supabase = createClient(
-    import.meta.env.VITE_SUPABASE_URL,
-    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
-)
+
 
 function Nav() {
 
-    var claims = supabase.auth.getClaims()
+    const [loading, setLoading] = useState(true);
+    const [claims, setClaims] = useState(null)
+
+
+    useEffect(() => {
+        supabase.auth.getClaims().then(({ data: { claims } }) => setClaims(claims))
+
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+            supabase.auth.getClaims().then(({ data: { claims } }) => setClaims(claims))
+            setLoading(false)
+        })
+
+        return () => subscription.unsubscribe()
+
+
+    }, [])
+
+    if (loading) return null
 
     if (claims) {
         return (
@@ -19,9 +32,11 @@ function Nav() {
                     <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
                     <div className='signInContainer'>
                     </div>
-                    <div>
-                        <img src="/src/assets/BOFILEPICTURE.png" alt="BOFILE PITCURE"></img>
-                    </div>
+
+                    <h1>Wallahi du er logged in</h1>
+                    <button
+                        onClick={() => supabase.auth.signOut().then(() => window.location.reload())}
+                    >Log out type shi</button>
 
                 </nav>
             </header>
@@ -33,14 +48,9 @@ function Nav() {
         <header>
             <nav>
                 <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
-                <div className='logInContainer'>
-                    <button>
-                        <NavLink to='/auth' color='white' text-decoration='none'>Login</NavLink>
-                    </button>
-                </div>
                 <div className='signInContainer'>
                     <button>
-                        <NavLink to='/auth' color='white' text-decoration='none'>Sign In</NavLink>
+                        <NavLink to='/auth'>Sign In</NavLink>
                     </button>
                 </div>
             </nav>
