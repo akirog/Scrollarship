@@ -8,17 +8,6 @@
 body {
     margin: 0;
 }
-header {
-    background-color: #4A33E0;
-    padding: 1rem;
-}
-header nav {
-    display: flex;
-    align-items: center;
-}
-header nav img {
-    width: 18rem;
-}
 .auth {
     display: flex;
     flex-direction: column;

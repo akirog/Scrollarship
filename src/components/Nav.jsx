@@ -19,8 +19,9 @@ function Nav() {
                     <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
                     <div className='signInContainer'>
                     </div>
-
-                    <img src="/assets/BOFILEPICTURE.png"></img>
+                    <div>
+                        <img src="/src/assets/BOFILEPICTURE.png" alt="BOFILE PITCURE"></img>
+                    </div>
 
                 </nav>
             </header>
