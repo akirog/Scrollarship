@@ -1,9 +1,20 @@
 import { NavLink } from 'react-router'
 import Login from './Auth'
+import {createClient} from "@supabase/supabase-js";
 
-function Nav(props) {
+const supabase = createClient(
+    import.meta.env.VITE_SUPABASE_URL,
+    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
+)
 
-    if (props.logged_in) {
+
+function Nav() {
+
+
+    var claims = supabase.auth.getClaims()
+
+
+    if (claims) {
         return (
             <header>
                 <nav>
@@ -11,10 +22,14 @@ function Nav(props) {
                     <div className='signInContainer'>
                     </div>
 
+                    <h1>Wallahi du er logged in</h1>
+
                 </nav>
             </header>
         )
     }
+
+
     return (
         <header>
             <nav>

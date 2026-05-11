@@ -3,16 +3,20 @@ import { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import Nav from "./Nav.jsx";
 
+import { useNavigate } from 'react-router-dom'
+
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
 )
+
 
 function Auth() {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [claims, setClaims] = useState(null)
+  const navigate = useNavigate();
 
 
   const handleLogin = async (event)=>{
@@ -46,9 +50,7 @@ function Auth() {
 
   // If user is logged in, show welcome screen
   if (claims) {
-    return (
-        <Nav logged_in={true}/>
-    )
+    navigate('/')
   }
 
   // Show login form

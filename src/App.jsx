@@ -3,6 +3,7 @@ import Auth from './components/Auth'
 import Account from './components/Account'
 import Scroll from './components/Scroll'
 import './App.css'
+import Nav from "./components/Account";
 
 function App() {
   return (
@@ -11,7 +12,12 @@ function App() {
         <Routes>
           <Route path='/account' element={<Account/>}/>
           <Route path='/auth' element={<Auth />}/>
-          <Route path='/' element={<Scroll />} />
+          <Route path='/' element={
+              <>
+                  <Nav />
+                  <Scroll />
+              </>
+          }/>
         </Routes>
       </BrowserRouter>
     </>
