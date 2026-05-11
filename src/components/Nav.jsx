@@ -31,8 +31,7 @@ function Nav() {
                 <nav>
                     <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
                     <div className='Elements'>
-                        <button onClick={() => supabase.auth.signOut().then(() => window.location.reload())}>Log out type shi</button>
-                        <img className='bofilePicture' src='src/assets/BOFILEPICTURE.png' alt='BOFILEPICTURE'></img>
+                        <NavLink to='/account'><img className='bofilePicture' src='src/assets/BOFILEPICTURE.png' alt='BOFILEPICTURE'></img></NavLink>
                     </div>
                 </nav>
             </header>
