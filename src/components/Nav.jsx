@@ -1,18 +1,16 @@
 import { NavLink } from 'react-router'
 import Login from './Auth'
 import {createClient} from "@supabase/supabase-js";
+import './Nav.css'
 
 const supabase = createClient(
     import.meta.env.VITE_SUPABASE_URL,
     import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
 )
 
-
 function Nav() {
 
-
     var claims = supabase.auth.getClaims()
-
 
     if (claims) {
         return (
