@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router'
 import { supabase } from '../supabase.js'
 import {useEffect, useState} from "react";
-
+import './Nav.css'
 
 
 function Nav() {
@@ -30,14 +30,10 @@ function Nav() {
             <header>
                 <nav>
                     <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
-                    <div className='signInContainer'>
+                    <div className='Elements'>
+                        <button onClick={() => supabase.auth.signOut().then(() => window.location.reload())}>Log out type shi</button>
+                        <img className='bofilePicture' src='src/assets/BOFILEPICTURE.png' alt='BOFILEPICTURE'></img>
                     </div>
-
-                    <h1>Wallahi du er logged in</h1>
-                    <button
-                        onClick={() => supabase.auth.signOut().then(() => window.location.reload())}
-                    >Log out type shi</button>
-
                 </nav>
             </header>
         )
@@ -48,6 +44,11 @@ function Nav() {
         <header>
             <nav>
                 <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
+                <div className='logInContainer'>
+                    <button>
+                        <NavLink to='/auth'>Log In</NavLink>
+                    </button>
+                </div>
                 <div className='signInContainer'>
                     <button>
                         <NavLink to='/auth'>Sign In</NavLink>

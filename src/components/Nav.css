@@ -11,7 +11,7 @@ header nav img {
 }
 header nav .signInContainer {
     display: flex;
-    width: 100%;
+    width: 6rem;
     justify-content: flex-end;
 }
 header nav .signInContainer button {
@@ -24,7 +24,7 @@ header nav .signInContainer button {
 }
 header nav .logInContainer {
     display: flex;
-    width: 1700%;
+    width: 6rem;
     justify-content: flex-end;
 }
 header nav .logInContainer button {
@@ -38,4 +38,9 @@ header nav .logInContainer button {
 header nav .bofilePicture {
     display: flex;
     justify-content: flex-end;
+}
+header nav .Elements {
+    display: flex;
+    justify-content: flex-end;
+    width: 300%;
 }
