@@ -23,7 +23,7 @@ function Nav() {
 
     }, [])
 
-    if (loading) return null
+    if (loading) return (<h1>Loading...</h1>)
 
     if (claims) {
         return (
