@@ -16,6 +16,8 @@ function Auth(props) {
   const location = useLocation()
   const [isSignUp, setIsSignUp] = useState(location.state?.signUp ?? false)
 
+  const [error, setError] = useState("")
+
 
   const handleLogin = async (event)=> {
     event.preventDefault()
@@ -24,10 +26,7 @@ function Auth(props) {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
 
     if (error) {
-      // try registering instead
-      console.log("Sign in error:" + error)
-      const { error: signUpError } = await supabase.auth.signUp({ email, password })
-      console.log(signUpError)
+      setError(error.toString())
     }
 
     setLoading(false)
@@ -35,14 +34,14 @@ function Auth(props) {
 
 
 
-  const handleSignUp = async (event)=>{
+  const handleSignUp = async (event)=> {
     event.preventDefault()
     setLoading(true)
 
     const error = await supabase.auth.signUp({ email, password })
 
     if (error) {
-      console.log("Sign up error:" + error)
+      setError(error.toString())
     }
 
     setLoading(false)
@@ -95,6 +94,7 @@ function Auth(props) {
                 required={true}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            <h4>{error}</h4>
             <button disabled={loading}>
               {loading ? <span>Loading</span> : <span>Log in</span>}
             </button>
@@ -122,6 +122,7 @@ function Auth(props) {
                 required={true}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            <h4>{error}</h4>
             <button disabled={loading}>
               {loading ? <span>Loading</span> : <span>Sign Up</span>}
             </button>
