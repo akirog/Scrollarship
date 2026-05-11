@@ -1,12 +1,24 @@
 
 import { supabase } from "../supabase.js";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 
 function User() {
 
     const [tab, setTab] = useState('stats')
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        supabase.auth.getClaims().then(({data}) => {
+            if (!data?.claims?.sid) {
+                navigate('/auth')
+            }
+        })
+
+        return () => {}
+    }, [])
 
     return (
         <main>
