@@ -48,7 +48,7 @@ function Nav() {
                         <NavLink to='/auth'>Login</NavLink>
                     </button>
                     <button className='signUp' color='white'>
-                        <NavLink to='/auth'>Sign Up</NavLink>
+                        <NavLink to='/auth' state={{ signUp: true }}>Sign Up</NavLink>
                     </button>
                 </div>
             </nav>

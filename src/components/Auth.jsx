@@ -4,16 +4,17 @@ import {supabase} from "../supabase.js";
 
 import { useNavigate } from 'react-router-dom'
 
+import { useLocation } from 'react-router-dom'
 
-
-function Auth() {
+function Auth(props) {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [claims, setClaims] = useState(null)
   const navigate = useNavigate();
 
-  const [isSignUp, setIsSignUp] = useState(false)
+  const location = useLocation()
+  const [isSignUp, setIsSignUp] = useState(location.state?.signUp ?? false)
 
 
   const handleLogin = async (event)=> {
@@ -78,7 +79,7 @@ function Auth() {
   if (!isSignUp) {
     return (
         <>
-          <h1>Sign In</h1>
+          <h1>Log In</h1>
           <form onSubmit={handleLogin}>
             <input
                 type="email"
@@ -122,7 +123,7 @@ function Auth() {
                 onChange={(e) => setPassword(e.target.value)}
             />
             <button disabled={loading}>
-              {loading ? <span>Loading</span> : <span>Log in</span>}
+              {loading ? <span>Loading</span> : <span>Sign Up</span>}
             </button>
           </form>
 
