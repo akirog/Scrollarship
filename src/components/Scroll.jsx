@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { PlaybackControllerProvider, RiyilsViewer } from 'react-riyils'
 import 'react-riyils/dist/index.css'
+import Nav from './Nav'
 
 const BASE_VIDEOS = [
     { id: '1', videoUrl: '/src/assets/Test.mp4', caption: 'Kurzegasagt' },
-    { id: '2', videoUrl: '/src/assets/Test.mp4', caption: 'Kurzegasagt' }
+    { id: '2', videoUrl: '/src/assets/IMG_3354.mp4', caption: 'Kurzegasagt' }
 ]
 
 function getMockVideos() {
