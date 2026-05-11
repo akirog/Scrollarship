@@ -19,11 +19,6 @@ header nav {
 header nav img {
     width: 18rem;
 }
-header nav .signInContainer {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-}
 .auth {
     display: flex;
     flex-direction: column;
