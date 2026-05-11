@@ -1,4 +1,6 @@
-
+* {
+    text-decoration: none;
+}
 .lexend-header {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;

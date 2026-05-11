@@ -9,12 +9,7 @@ header nav {
 header nav img {
     height: 6rem;
 }
-header nav .signInContainer {
-    display: flex;
-    width: 6rem;
-    justify-content: flex-end;
-}
-header nav .signInContainer button {
+header nav .signUp {
     color: white;
     background-color: #F4C10B;
     text-decoration: none;
@@ -22,18 +17,14 @@ header nav .signInContainer button {
     border-radius: 4px;
     border: none;
 }
-header nav .logInContainer {
-    display: flex;
-    width: 6rem;
-    justify-content: flex-end;
-}
-header nav .logInContainer button {
+header nav .login {
     color: white;
     background-color: #4A33E0;
     text-decoration: none;
     font-size: 20px;
     border-radius: 4px;
     border: none;
+    padding-right: 2rem;
 }
 header nav .bofilePicture {
     display: flex;
@@ -43,4 +34,10 @@ header nav .Elements {
     display: flex;
     justify-content: flex-end;
     width: 300%;
+}
+header nav .signLogContainers {
+    display: flex;
+    justify-content: flex-end;
+    width: 300%;
+    height: 50px;
 }

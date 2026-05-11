@@ -44,14 +44,12 @@ function Nav() {
         <header>
             <nav>
                 <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
-                <div className='logInContainer'>
-                    <button>
-                        <NavLink to='/auth'>Log In</NavLink>
+                <div className='signLogContainers'>
+                    <button className='login' color='white'>
+                        <NavLink to='/auth'>Login</NavLink>
                     </button>
-                </div>
-                <div className='signInContainer'>
-                    <button>
-                        <NavLink to='/auth'>Sign In</NavLink>
+                    <button className='signUp' color='white'>
+                        <NavLink to='/auth'>Sign Up</NavLink>
                     </button>
                 </div>
             </nav>
