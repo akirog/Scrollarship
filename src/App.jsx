@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router'
 import Auth from './components/Auth'
-import Account from './components/Account'
+import User from './components/User.jsx'
 import Scroll from './components/Scroll'
+import Nav from './components/Nav'
 import './App.css'
-import Nav from "./components/Account";
 import Hero from "./components/Hero.jsx";
 
 function App() {
@@ -11,7 +11,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-            <Route path='/account' element={<Account/>}/>
+            <Route path='/account' element={
+                <>
+                    <Nav />
+                    <User/>
+                </>
+            }/>
             <Route path='/auth' element={<Auth />}/>
             <Route path='/' element={
               <>
