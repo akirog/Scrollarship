@@ -34,9 +34,14 @@ function Nav() {
         <header>
             <nav>
                 <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
+                <div className='logInContainer'>
+                    <button>
+                        <NavLink to='/auth' color='white' text-decoration='none'>Login</NavLink>
+                    </button>
+                </div>
                 <div className='signInContainer'>
                     <button>
-                        <NavLink to='/auth'>Sign In</NavLink>
+                        <NavLink to='/auth' color='white' text-decoration='none'>Sign In</NavLink>
                     </button>
                 </div>
             </nav>
