@@ -4,16 +4,19 @@ import {supabase} from "../supabase.js";
 
 import { useNavigate } from 'react-router-dom'
 
+import { useLocation } from 'react-router-dom'
 
-
-function Auth() {
+function Auth(props) {
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [claims, setClaims] = useState(null)
   const navigate = useNavigate();
 
-  const [isSignUp, setIsSignUp] = useState(false)
+  const location = useLocation()
+  const [isSignUp, setIsSignUp] = useState(location.state?.signUp ?? false)
+
+  const [error, setError] = useState("")
 
 
   const handleLogin = async (event)=> {
@@ -23,10 +26,7 @@ function Auth() {
     const { error } = await supabase.auth.signInWithPassword({ email, password })
 
     if (error) {
-      // try registering instead
-      console.log("Sign in error:" + error)
-      const { error: signUpError } = await supabase.auth.signUp({ email, password })
-      console.log(signUpError)
+      setError(error.toString())
     }
 
     setLoading(false)
@@ -34,14 +34,14 @@ function Auth() {
 
 
 
-  const handleSignUp = async (event)=>{
+  const handleSignUp = async (event)=> {
     event.preventDefault()
     setLoading(true)
 
     const error = await supabase.auth.signUp({ email, password })
 
     if (error) {
-      console.log("Sign up error:" + error)
+      setError(error.toString())
     }
 
     setLoading(false)
@@ -78,7 +78,7 @@ function Auth() {
   if (!isSignUp) {
     return (
         <>
-          <h1>Sign In</h1>
+          <h1>Log In</h1>
           <form onSubmit={handleLogin}>
             <input
                 type="email"
@@ -94,6 +94,7 @@ function Auth() {
                 required={true}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            <h4>{error}</h4>
             <button disabled={loading}>
               {loading ? <span>Loading</span> : <span>Log in</span>}
             </button>
@@ -121,8 +122,9 @@ function Auth() {
                 required={true}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            <h4>{error}</h4>
             <button disabled={loading}>
-              {loading ? <span>Loading</span> : <span>Log in</span>}
+              {loading ? <span>Loading</span> : <span>Sign Up</span>}
             </button>
           </form>
 

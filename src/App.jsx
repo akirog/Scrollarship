@@ -11,20 +11,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-            <Route path='/account' element={
-                <>
-                    <Nav />
-                    <User/>
-                </>
-            }/>
-            <Route path='/auth' element={<Auth />}/>
-            <Route path='/' element={
-              <>
-                  <Nav />
-                  <Scroll />
-              </>
-            }/>
-            <Route path='/hero' element={<Hero/>}/>
+          <Route path='/account' element={<Account />}/>
+          <Route path='/auth' element={<Auth />}/>
+          <Route path='/' element={<Scroll />} />
         </Routes>
       </BrowserRouter>
     </>
