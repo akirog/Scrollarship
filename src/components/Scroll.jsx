@@ -31,7 +31,6 @@ function Scroll() {
         }}
         keyboard={true}
         mousewheel={true}
-        onsc
         style={styli}
         virtual
         >
