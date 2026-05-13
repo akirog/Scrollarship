@@ -6,7 +6,7 @@ function checkAnswer(answer) {
     console.log(answer)
 }
 
-function Task({ question }) {
+function Task({ question, math, correctAnswer }) {
     const [answer, setAnswer] = useState('')
 
     const handleSubmit = event => {
@@ -19,7 +19,7 @@ function Task({ question }) {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='ftext'><InlineMath math={'2^2'} /></label><br />
+                <label htmlFor='ftext'>{question} <InlineMath math={math} /></label><br />
                 <input type='text' id='ftext' onChange={event => setAnswer(event.target.value)} value={answer} required/><br />
                 <button type='submit'>Submit</button>
             </form>
