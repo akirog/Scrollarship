@@ -1,12 +1,12 @@
 import Video from './Video'
 import Task from './Task'
 import Curriculum from '/src/assets/curriculum.json'
-import { Navigation, Keyboard, Mousewheel } from 'swiper/modules'
+import { Navigation, Keyboard, Mousewheel, Virtual } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/keyboard'
-import 'swiper/css/scrollbar'
+import 'swiper/css/virtual'
 
 function AppendCMS({ content }) {
     if (content.type === "video") {
@@ -23,7 +23,7 @@ function Scroll() {
 
     return (
         <Swiper
-        modules={[Navigation, Keyboard, Mousewheel]}
+        modules={[Navigation, Keyboard, Mousewheel, Virtual]}
         direction={"vertical"}
         navigation={{
             nextEl: ".swiper-button-next",
@@ -32,9 +32,10 @@ function Scroll() {
         keyboard={true}
         mousewheel={true}
         style={styli}
+        virtual
         >
             {Curriculum.math.map((content) => (
-                <SwiperSlide>
+                <SwiperSlide virtualIndex={content.index}>
                     <AppendCMS content={content}/>
                 </SwiperSlide>
             ))}
