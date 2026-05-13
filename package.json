@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1",
+    "katex": "^0.16.45",
     "prop-types": "^15.8.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-katex": "^3.1.0",
     "react-riyils": "^2.58.0",
     "react-router-dom": "^7.14.2",
-    "reactjs-popup": "^2.0.6"
+    "reactjs-popup": "^2.0.6",
+    "swiper": "^12.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
