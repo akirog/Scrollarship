@@ -34,8 +34,8 @@ function Scroll() {
         style={styli}
         virtual
         >
-            {Curriculum.math.map((content) => (
-                <SwiperSlide virtualIndex={content.index}>
+            {Curriculum.math.map((content, index) => (
+                <SwiperSlide virtualIndex={index}>
                     <AppendCMS content={content}/>
                 </SwiperSlide>
             ))}
