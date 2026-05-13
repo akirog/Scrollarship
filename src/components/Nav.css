@@ -9,7 +9,7 @@ header nav {
 header nav img {
     height: 3rem;
 }
-header nav .signUp {
+header nav button .signUp {
     color: white;
     background-color: #F4C10B;
     text-decoration: none;
