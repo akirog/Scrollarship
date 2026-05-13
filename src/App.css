@@ -1,4 +1,6 @@
-
+* {
+    text-decoration: none;
+}
 .lexend-header {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
@@ -7,22 +9,6 @@
 }
 body {
     margin: 0;
-}
-header {
-    background-color: #4A33E0;
-    padding: 1rem;
-}
-header nav {
-    display: flex;
-    align-items: center;
-}
-header nav img {
-    width: 18rem;
-}
-header nav .signInContainer {
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
 }
 .auth {
     display: flex;
