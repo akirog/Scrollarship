@@ -3,6 +3,7 @@ import Auth from './components/Auth'
 import User from './components/User.jsx'
 import Scroll from './components/Scroll'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 import './App.css'
 import Hero from "./components/Hero.jsx";
 
@@ -17,13 +18,15 @@ function App() {
               <>
                   <Nav />
                   <Scroll />
+                  <Footer />
               </>
 
           } />
             <Route path='/home' element={
                 <>
-                <Nav />
-                <Hero />
+                    <Nav />
+                    <Hero />
+                    <Footer />
                 </>
             }/>
         </Routes>
