@@ -20,7 +20,12 @@ function App() {
               </>
 
           } />
-            <Route path='/home' element={<Hero />}/>
+            <Route path='/home' element={
+                <>
+                <Nav />
+                <Hero />
+                </>
+            }/>
         </Routes>
       </BrowserRouter>
     </>

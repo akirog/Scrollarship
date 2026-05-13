@@ -30,7 +30,7 @@ function Nav() {
         <header>
             <nav>
                 <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
-
+                <NavLink to='/home'>Home</NavLink>
                 {
                     claims ?
                     (<div className='Elements'>
@@ -40,7 +40,7 @@ function Nav() {
                     (<div className='signLogContainers'>
                         <button className='login' color='white'>
                             <NavLink to='/auth'>Login</NavLink>
-                        </button>
+                        </button> x
                         <button className='signUp' color='white'>
                             <NavLink to='/auth' state={{ signUp: true }}>Sign Up</NavLink>
                         </button>
