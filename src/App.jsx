@@ -11,9 +11,16 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/account' element={<Account />}/>
+          <Route path='/account' element={<User />}/>
           <Route path='/auth' element={<Auth />}/>
-          <Route path='/' element={<Scroll />} />
+          <Route path='/' element={
+              <>
+                  <Nav />
+                  <Scroll />
+              </>
+
+          } />
+            <Route path='/home' element={<Hero />}/>
         </Routes>
       </BrowserRouter>
     </>
