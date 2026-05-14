@@ -1,15 +1,71 @@
+/* General */
 * {
     text-decoration: none;
-}
-.lexend-header {
-  font-family: "Lexend", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
 }
 body {
     margin: 0;
 }
+.lexend-header {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+.elms-sans-text {
+    font-family: "Elms Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Nav */
+header {
+    background-color: #4A33E0;
+    padding: 1rem;
+}
+header nav {
+    display: flex;
+    align-items: center;
+}
+header nav img {
+    height: 3rem;
+}
+header nav .signUp {
+    color: white;
+    background-color: #F4C10B;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+}
+header nav .login {
+    color: white;
+    background-color: #4A33E0;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 4px;
+    border: none;
+    padding-right: 2rem;
+}
+header nav .profilePicture {
+    display: flex;
+    justify-content: flex-end;
+}
+header nav .Elements {
+    display: flex;
+    justify-content: flex-end;
+    width: 300%;
+}
+header nav .signLogContainers {
+    display: flex;
+    justify-content: flex-end;
+    width: 300%;
+    height: 50px;
+}
+
+/* Footer */
+
+/* Auth */
 .auth {
     display: flex;
     flex-direction: column;
@@ -21,3 +77,7 @@ body {
     border-radius: 0.5rem;
     padding: 1rem;
 }
+
+/* Account */
+
+/* Explore */
