@@ -4,8 +4,6 @@ function Video({ src }) {
   const test = {
     height: "100%",
     width: "100%",
-    borderRadius: "2rem",
-    overflow: "hidden",
   }
 
   return (
