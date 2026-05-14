@@ -5,6 +5,9 @@
 body {
     margin: 0;
 }
+a {
+    color: white;
+}
 .lexend-header {
     font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
@@ -30,7 +33,7 @@ header nav {
 header nav img {
     height: 3rem;
 }
-header nav .signUp {
+header nav button .signUp {
     color: white;
     background-color: #F4C10B;
     text-decoration: none;
