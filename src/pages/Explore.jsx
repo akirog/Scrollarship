@@ -68,7 +68,7 @@ function Task({ question, math, correctAnswer }) {
     if (answer == correctAnswer) {
       setResponse("CORRECT GOOD!!")
     } else {
-      setResponse("NOT CORRECT BAD FUCK YOU KILL YOURSELF NOW YOU ARE TOO DUMB")
+      setResponse("NOT CORRECT!!")
     }
   }
 
