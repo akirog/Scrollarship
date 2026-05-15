@@ -1,9 +1,13 @@
 import Scroll from './Scroll'
+import Sidebar from './Sidebar'
 
 function Explore() {
-    return (
-        <Scroll />
-    )
+  return (
+    <main>
+      <Sidebar />
+      <Scroll />
+    </main>
+  )
 }
 
 export default Explore
