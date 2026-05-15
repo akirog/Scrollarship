@@ -82,9 +82,25 @@ function SignOut() {
 }
 
 function Account() {
-  return (
-    <User />
-  )
+    const [displayEmail, setDisplayEmail] = useState('')
+
+    useEffect(() => {
+        supabase.auth.getClaims().then(({data}) => {
+            if (data.claims.email) {
+                setDisplayEmail(data.claims.email)
+            }
+        })
+
+        return () => {}
+    }, [])
+
+    return (
+        <>
+            <h1>Make account stuff</h1>
+            <h2>email: {displayEmail}</h2>
+            <SignOut />
+        </>
+    )
 }
 
-export default Account
+export default User
