@@ -5,9 +5,15 @@ import './Nav.css'
 
 
 function Nav() {
-
     const [loading, setLoading] = useState(true);
     const [claims, setClaims] = useState(null)
+
+    const buttonStyle = {
+        backgroundColor: "#F4C10B",
+        border: "none",
+        borderRadius: "0.5rem",
+        fontSize: "20px",
+    }
 
 
     useEffect(() => {
@@ -30,18 +36,20 @@ function Nav() {
         <header>
             <nav>
                 <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
-                <NavLink to='/home'>Home</NavLink>
+                <div className='HomeContainer'>
+                    <NavLink to='/home' className='Home'>About Us</NavLink>
+                </div>
                 {
                     claims ?
                     (<div className='Elements'>
                         <NavLink to='/account'><img className='bofilePicture' src='src/assets/BOFILEPICTURE.png' alt='BOFILEPICTURE'></img></NavLink>
                     </div>)
-                    :
+                    : 
                     (<div className='signLogContainers'>
-                        <button className='login' color='white'>
+                        <button className='login'>
                             <NavLink to='/auth'>Login</NavLink>
-                        </button> x
-                        <button className='signUp' color='white'>
+                        </button>
+                        <button className='signUp' style={buttonStyle}>
                             <NavLink to='/auth' state={{ signUp: true }}>Sign Up</NavLink>
                         </button>
                     </div>)

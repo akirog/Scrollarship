@@ -71,7 +71,7 @@ function Auth(props) {
 
 
   const changeButton = <button onClick={() => setIsSignUp(!isSignUp)}>
-    {isSignUp ? 'Already have an account? Sign in' : 'Don\'t have an account? Sign up'}
+    {isSignUp ? 'Already have an account? Log in' : 'Don\'t have an account? Sign up'}
   </button>
 
   // Show login form
