@@ -38,8 +38,7 @@ function Connector(props) {
     const error = await supabase.auth.signUp({ email, password })
 
     if (error) {
-      console.log(error)
-      setError(error.toString())
+      setError(error.error.toString())
     }
 
     setLoading(false)
