@@ -1,5 +1,6 @@
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import {useNavigate} from "react-router-dom";
 
 function FeatureChase() {
   return (
@@ -50,12 +51,14 @@ function Cards() {
 }
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div>
         <h1>Learn Better Faster</h1>
         <p>Scrollarship is a platform tailored for people wanting to improve their academic performance through engaging and interactive learning</p>
-        <button>Get Started</button>
+        <button onClick={() => navigate('/explore')}>Get Started</button>
       </div>
       <div>
         <img src='/src/assets/scrolling.svg' />
