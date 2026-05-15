@@ -1,12 +1,20 @@
-import Video from './Video'
-import Task from './Task'
 import Curriculum from '/src/assets/curriculum.json'
 import { Navigation, Keyboard, Mousewheel, Virtual } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import ReactPlayer from 'react-player'
+import { useState } from 'react'
+import { InlineMath, BlockMath } from 'react-katex'
+import 'katex/dist/katex.min.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/keyboard'
 import 'swiper/css/virtual'
+
+function Sidebar() {
+  return (
+    <div></div>
+  )
+}
 
 function AppendCMS({ content }) {
   if (content.type === 'video') {
@@ -27,6 +35,41 @@ function handlePlaying() {
   if (visibleVideo) {
     visibleVideo.play()
   }
+}
+
+function Video({ src }) {
+  const test = {
+    height: "100%",
+    width: "100%",
+  }
+
+  return (
+    <ReactPlayer src={src} loop={true} playsInline={true} style={test}/>
+  )
+}
+
+function checkAnswer(answer) {
+  console.log(answer)
+}
+
+function Task({ question, math, correctAnswer }) {
+  const [answer, setAnswer] = useState('')
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    setAnswer('')
+    checkAnswer(answer)
+  }
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='ftext'>{question} <InlineMath math={math} /></label><br />
+        <input type='text' id='ftext' onChange={event => setAnswer(event.target.value)} value={answer} required/><br />
+        <button type='submit'>Submit</button>
+      </form>
+    </div>
+  )
 }
 
 function Scroll() {
@@ -58,4 +101,13 @@ function Scroll() {
   )
 }
 
-export default Scroll
+function Explore() {
+  return (
+    <main>
+      <Sidebar />
+      <Scroll />
+    </main>
+  )
+}
+
+export default Explore

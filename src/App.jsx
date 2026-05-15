@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router'
-import Account from './components/Account'
-import Auth from './components/Auth'
-import Explore from './components/Explore'
-import Index from './components/Index'
+import Account from './pages/Account'
+import Auth from './pages/Auth'
+import Explore from './pages/Explore'
+import Index from './pages/Index'
 import './App.css'
 
 function App() {

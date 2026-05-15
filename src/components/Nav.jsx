@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router'
-import { supabase } from './supabase'
+import { supabase } from './Supabase'
 import { useEffect, useState } from 'react';
 
 function Nav() {
@@ -36,7 +36,7 @@ function Nav() {
     return (
         <header>
             <nav>
-                <NavLink to='/'><img src='/src/assets/LogoName.svg' alt='Scrollarship mascot' /></NavLink>
+                <NavLink to='/'><img src='/src/assets/logoName.svg' alt='Scrollarship mascot' /></NavLink>
                 <div className='HomeContainer'>
                     <NavLink to='/home' className='Home'>About Us</NavLink>
                 </div>

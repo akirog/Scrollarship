@@ -1,4 +1,4 @@
-import Connector from './Connector'
+import Connector from '../components/Connector'
 
 function Auth() {
   return (
