@@ -20,7 +20,7 @@ function AppendCMS({ content }) {
   if (content.type === 'video') {
     return <Video src={content.src} />
   } else if (content.type === 'task') {
-    return <Task question={content.question} math={content.math} answer={content.answer} />
+    return <Task question={content.question} math={content.math} correctAnswer={content.answer} />
   }
 }
 
@@ -48,17 +48,17 @@ function Video({ src }) {
   )
 }
 
-function checkAnswer(answer) {
-  console.log(answer)
-}
-
 function Task({ question, math, correctAnswer }) {
   const [answer, setAnswer] = useState('')
+  const [response, setResponse] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
-    setAnswer('')
-    checkAnswer(answer)
+    if (answer == correctAnswer) {
+      setResponse("CORRECT GOOD!!")
+    } else {
+      setResponse("NOT CORRECT BAD FUCK YOU KILL YOURSELF NOW YOU ARE TOO DUMB")
+    }
   }
 
   return (
@@ -66,6 +66,7 @@ function Task({ question, math, correctAnswer }) {
       <form onSubmit={handleSubmit}>
         <label htmlFor='ftext'>{question} <InlineMath math={math} /></label><br />
         <input type='text' id='ftext' onChange={event => setAnswer(event.target.value)} value={answer} required/><br />
+        <p>{response}</p>
         <button type='submit'>Submit</button>
       </form>
     </div>
