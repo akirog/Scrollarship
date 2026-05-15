@@ -50,7 +50,7 @@ function Nav() {
                         <button className='login'>
                             <NavLink to='/auth'>Login</NavLink>
                         </button>
-                        <button className='signUp' style={buttonStyle}>
+                        <button className='signUp'>
                             <NavLink to='/auth' state={{ signUp: true }}>Sign Up</NavLink>
                         </button>
                     </div>)
