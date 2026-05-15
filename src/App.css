@@ -84,3 +84,9 @@ header nav .signLogContainers {
 /* Account */
 
 /* Explore */
+
+video {
+    min-width: none;
+    border-radius: 3rem;
+    border: solid black;
+}

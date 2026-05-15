@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import ReactPlayer from 'react-player'
 import { useState } from 'react'
 import { InlineMath, BlockMath } from 'react-katex'
+import { wideCharacterFont } from 'katex/src/wide-character.js'
 import 'katex/dist/katex.min.css'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -38,27 +39,37 @@ function handlePlaying() {
 }
 
 function Video({ src }) {
-  const test = {
+  const videoContainer = {
+    display: "flex",
     height: "100%",
-    width: "100%",
+    justifyContent: "center",
+  }
+  const playback = {
+    height: "100%",
+    width: "none",
+    borderRadius: "3rem",
+    overflow: "hidden",
   }
 
   return (
-    <ReactPlayer src={src} loop={true} playsInline={true} style={test}/>
+    <div style={videoContainer}>
+      <ReactPlayer src={src} loop={true} playsInline={true} style={playback} controls={true}/>
+    </div>
   )
 }
 
 function checkAnswer(answer) {
-  console.log(answer)
+  console.log("answer")
 }
 
 function Task({ question, math, correctAnswer }) {
   const [answer, setAnswer] = useState('')
 
-  const handleSubmit = event => {
+  const handleSubmit =  event => {
+    console.log("iydgfu")
     event.preventDefault()
     setAnswer('')
-    checkAnswer(answer)
+    checkAnswer(correctAnswer)
   }
 
   return (
@@ -89,6 +100,7 @@ function Scroll() {
     keyboard={true}
     mousewheel={true}
     style={swiperContainer}
+    spaceBetween={10}
     onSlideChangeTransitionEnd={() => handlePlaying()}
     virtual
     >
