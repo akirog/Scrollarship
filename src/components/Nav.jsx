@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router'
-import { supabase } from './Supabase'
+import { supabase } from './supabase'
 import { useEffect, useState } from 'react';
 
 function Nav() {
