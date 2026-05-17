@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from './Supabase'
+import { supabase } from './supabase'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 
