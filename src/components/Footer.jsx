@@ -1,14 +1,20 @@
+import YouTubeIcon from '/src/assets/youtube.svg'
+import TikTokIcon from '/src/assets/tiktok.svg'
+import InstagramIcon from '/src/assets/instagram.svg'
+import XIcon from '/src/assets/x.svg'
+import logoName from '/src/assets/logoName.svg'
+
 function Footer() {
   return (
     <footer>
       <div>
         <div>
-          <img alt='YouTube icon' src='/src/assets/youtube.svg' />
-          <img alt='TikTok icon' src='/src/assets/tiktok.svg' />
-          <img alt='Instagram icon' src='/src/assets/instagram.svg' />
-          <img alt='X/Twitter icon' src='/src/assets/x.svg' />
+          <img alt='YouTube icon' src={YouTubeIcon} />
+          <img alt='TikTok icon' src={TikTokIcon} />
+          <img alt='Instagram icon' src={InstagramIcon} />
+          <img alt='X/Twitter icon' src={XIcon} />
         </div>
-        <img alt='Scrollarship logo' src='/src/assets/logoName.svg' />
+        <img alt='Scrollarship logo' src={logoName} />
         <p>© 2026 Scrollarship, Inc. All rights reserved. </p>
       </div>
       <div>
