@@ -1,6 +1,10 @@
+import scrollingIcon from '/src/assets/scrolling.svg'
+import personalizedIcon from '/src/assets/personalized.svg'
+import efficientIcon from '/src/assets/efficient.svg'
+import intuitiveIcon from '/src/assets/star.svg'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
-import {useNavigate} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 
 function FeatureChase() {
   return (
@@ -28,25 +32,23 @@ function FeatureInteractive() {
 
 function Cards() {
   return (
-    <>
+    <div className='cardsRoot'>
       <div>
-        <div>
-          <img alt='Personalized icon' src='/src/assets/personalized.svg'/>
-          <h2>Personalized</h2>
-          <p>Have algorithms recommend topics and tasks best fit for your needs!</p>
-        </div>
-        <div>
-          <img alt='Efficient icon' src='/src/assets/speed.svg'/>
-          <h2>Efficient</h2>
-          <p>Efficient by design, remove friction with natural workflows that accelerate learning!</p>
-        </div>
-        <div>
-          <img alt='Intuitive icon' src='/src/assets/star.svg'/>
-          <h2>Intuitive</h2>
-          <p>Make learning intuitive by having custom curriculums for your needs!</p>
-        </div>
+        <img alt='Personalized icon' src={personalizedIcon}/>
+        <h2>Personalized</h2>
+        <p>Have algorithms recommend topics and tasks best fit for your needs!</p>
       </div>
-    </>
+      <div>
+        <img alt='Efficient icon' src={efficientIcon}/>
+        <h2>Efficient</h2>
+        <p>Efficient by design, remove friction with natural workflows that accelerate learning!</p>
+      </div>
+      <div>
+        <img alt='Intuitive icon' src={intuitiveIcon}/>
+        <h2>Intuitive</h2>
+        <p>Make learning intuitive by having custom curriculums for your needs!</p>
+      </div>
+    </div>
   )
 }
 
@@ -54,14 +56,16 @@ function Hero() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className='heroRoot'>
       <div>
-        <h1>Learn Better Faster</h1>
+        <h1>Learn Better,<br />Faster</h1>
         <p>Scrollarship is a platform tailored for people wanting to improve their academic performance through engaging and interactive learning</p>
-        <button onClick={() => navigate('/explore')}>Get Started</button>
+        <button className='heroButton'>
+          <NavLink to='/auth' state={{ signUp: true }}>Get Started</NavLink>
+        </button>
       </div>
-      <div>
-        <img src='/src/assets/scrolling.svg' />
+      <div className='scrollImg'>
+        <img src={scrollingIcon} />
       </div>
     </div>
   )
