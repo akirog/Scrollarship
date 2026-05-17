@@ -1,4 +1,4 @@
-{
+export const curriculum = {
     "math": [
         {"type": "video", "src": "https://stream.mux.com/G02MhhM1GPbBNO9oXEiAnnEtkJ4kfktD8TsixNrYXwQM.m3u8"},
         {"type": "video", "src": "https://stream.mux.com/MfH8WFZyBYKv2f4HRJ502DsdtR2AMEe19hpsTsVlEy5I.m3u8"},
@@ -11,3 +11,5 @@
     "history": [],
     "english": []
 }
+
+export default curriculum

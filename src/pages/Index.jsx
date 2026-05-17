@@ -1,7 +1,3 @@
-import scrollingIcon from '/src/assets/scrolling.svg'
-import personalizedIcon from '/src/assets/personalized.svg'
-import efficientIcon from '/src/assets/efficient.svg'
-import intuitiveIcon from '/src/assets/star.svg'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import {NavLink, useNavigate} from "react-router-dom";
@@ -34,17 +30,17 @@ function Cards() {
   return (
     <div className='cardsRoot'>
       <div>
-        <img alt='Personalized icon' src={personalizedIcon}/>
+        <img alt='Personalized icon' src={'/static/images/personalized.svg'}/>
         <h2>Personalized</h2>
         <p>Have algorithms recommend topics and tasks best fit for your needs!</p>
       </div>
       <div>
-        <img alt='Efficient icon' src={efficientIcon}/>
+        <img alt='Efficient icon' src={'/static/images/efficient.svg'}/>
         <h2>Efficient</h2>
         <p>Efficient by design, remove friction with natural workflows that accelerate learning!</p>
       </div>
       <div>
-        <img alt='Intuitive icon' src={intuitiveIcon}/>
+        <img alt='Intuitive icon' src={'/static/images/intuitive.svg'}/>
         <h2>Intuitive</h2>
         <p>Make learning intuitive by having custom curriculums for your needs!</p>
       </div>
@@ -65,7 +61,7 @@ function Hero() {
         </button>
       </div>
       <div className='scrollImg'>
-        <img src={scrollingIcon} />
+        <img src={'/static/images/scrolling.svg'} />
       </div>
     </div>
   )

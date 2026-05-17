@@ -1,4 +1,4 @@
-import Curriculum from '/src/assets/curriculum.json'
+import Curriculum from '../components/curriculum'
 import { Navigation, Keyboard, Mousewheel, Virtual } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import ReactPlayer from 'react-player'
