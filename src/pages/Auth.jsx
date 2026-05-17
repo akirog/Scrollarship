@@ -67,15 +67,15 @@ function Connector(props) {
   }, [])
 
 
-  const changeButton = <button onClick={() => setIsSignUp(!isSignUp)}>
+  const changeButton = <button onClick={() => setIsSignUp(!isSignUp)} className='changeButton'>
     {isSignUp ? 'Already have an account? Sign in' : 'Don\'t have an account? Sign up'}
   </button>
 
   // Show login form
   if (!isSignUp) {
     return (
-        <>
-          <h1>Log In</h1>
+        <div className='authRoot'>
+          <h1>Login</h1>
           <form onSubmit={handleLogin}>
             <input
                 type='email'
@@ -84,6 +84,7 @@ function Connector(props) {
                 required={true}
                 onChange={(e) => setEmail(e.target.value)}
             />
+            <br />
             <input
                 type='password'
                 placeholder='Password'
@@ -91,18 +92,18 @@ function Connector(props) {
                 required={true}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <h4>{error}</h4>
+            <br />
             <button disabled={loading}>
               {loading ? <span>Loading</span> : <span>Log in</span>}
             </button>
           </form>
-
           {changeButton}
-        </>
+          <h4>{error}</h4>
+        </div>
     )
   } else {
     return (
-        <>
+        <div className='authRoot'>
           <h1>Sign Up</h1>
           <form onSubmit={handleSignUp}>
             <input
@@ -112,6 +113,7 @@ function Connector(props) {
                 required={true}
                 onChange={(e) => setEmail(e.target.value)}
             />
+            <br />
             <input
                 type='password'
                 placeholder='Password'
@@ -119,14 +121,14 @@ function Connector(props) {
                 required={true}
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <h4>{error}</h4>
+            <br />
             <button disabled={loading}>
               {loading ? <span>Loading</span> : <span>Sign Up</span>}
             </button>
           </form>
-
           {changeButton}
-        </>
+          <h4>{error}</h4>
+        </div>
     )
   }
 }

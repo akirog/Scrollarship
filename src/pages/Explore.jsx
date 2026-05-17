@@ -63,7 +63,6 @@ function Task({ question, math, correctAnswer }) {
   const [response, setResponse] = useState('')
 
   const handleSubmit =  event => {
-    console.log("iydgfu")
     event.preventDefault()
     if (answer == correctAnswer) {
       setResponse("CORRECT GOOD!!")
@@ -73,13 +72,13 @@ function Task({ question, math, correctAnswer }) {
   }
 
   return (
-    <div>
+    <div className='taskRoot'>
       <form onSubmit={handleSubmit}>
         <label htmlFor='ftext'>{question} <InlineMath math={math} /></label><br />
-        <input type='text' id='ftext' onChange={event => setAnswer(event.target.value)} value={answer} required/><br />
-        <p>{response}</p>
+        <input type='text' id='ftext' onChange={event => setAnswer(event.target.value)} value={answer} placeholder='Answer' required/><br />
         <button type='submit'>Submit</button>
       </form>
+      <p>{response}</p>
     </div>
   )
 }

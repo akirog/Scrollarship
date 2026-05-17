@@ -4,6 +4,8 @@ export const curriculum = {
         {"type": "video", "src": "https://stream.mux.com/MfH8WFZyBYKv2f4HRJ502DsdtR2AMEe19hpsTsVlEy5I.m3u8"},
         {"type": "task", "question": "What is", "math": "2^2", "answer": 4},
         {"type": "video", "src": "https://stream.mux.com/G02MhhM1GPbBNO9oXEiAnnEtkJ4kfktD8TsixNrYXwQM.m3u8"},
+        {"type": "task", "question": "What is", "math": "sin(90°)", "answer": 1},
+        {"type": "video", "src": "https://stream.mux.com/MfH8WFZyBYKv2f4HRJ502DsdtR2AMEe19hpsTsVlEy5I.m3u8"},
         {"type": "video", "src": "https://stream.mux.com/G02MhhM1GPbBNO9oXEiAnnEtkJ4kfktD8TsixNrYXwQM.m3u8"}
     ],
     "science": [],
