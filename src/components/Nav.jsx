@@ -1,5 +1,3 @@
-import logoName from '/src/assets/logoName.svg'
-import profilePicture from '/src/assets/account.svg'
 import { NavLink } from 'react-router'
 import { supabase } from './supabase'
 import { useEffect, useState } from 'react'
@@ -27,9 +25,9 @@ function Nav() {
     return (
       <header>
         <nav>
-          <NavLink to='/'><img src={logoName} alt='Scrollarship mascot' className='navigationLogo' /></NavLink>
+          <NavLink to='/'><img src={'/static/images/logoName.svg'} alt='Scrollarship mascot' className='navigationLogo' /></NavLink>
           <div className='elements'>
-            <NavLink to='/account'><img className='profilePicture' src={profilePicture} alt='Profile'></img></NavLink>
+            <NavLink to='/account'><img className='profilePicture' src={'/static/images/account.svg'} alt='Profile'></img></NavLink>
           </div>
         </nav>
       </header>
@@ -38,11 +36,11 @@ function Nav() {
     return (
         <header>
             <nav>
-                <NavLink to='/'><img src={logoName} alt='Scrollarship mascot' className='navigationLogo'/></NavLink>
+                <NavLink to='/'><img src={'/static/images/logoName.svg'} alt='Scrollarship mascot' className='navigationLogo'/></NavLink>
                 {
                     claims ?
                     (<div className='elements'>
-                        <NavLink to='/account'><img className='profilePicture' src={profilePicture} alt='Profile'></img></NavLink>
+                        <NavLink to='/account'><img className='profilePicture' src={'/static/images/account.svg'} alt='Profile'></img></NavLink>
                     </div>)
                     : 
                     (<div className='signLogContainers'>
