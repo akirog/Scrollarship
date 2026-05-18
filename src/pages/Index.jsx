@@ -56,8 +56,8 @@ function Hero() {
       <div>
         <h1>Learn Better,<br />Faster</h1>
         <p>Scrollarship is a platform tailored for people wanting to improve their academic performance through engaging and interactive learning</p>
-        <button className='heroButton'>
-          <NavLink to='/explore' state={{ signUp: true }}>Get Started</NavLink>
+        <button className='heroButton' onClick={() => navigate('/explore')}>
+          Get Started
         </button>
       </div>
       <div className='scrollImg'>
