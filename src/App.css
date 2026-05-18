@@ -65,6 +65,19 @@ header nav .signLogContainers {
     width: 300%;
     height: 50px;
 }
+header nav .HomeContainer {
+    display: flex;
+    justify-content: bottom;
+    width: 100%;
+    padding-top: 0.7rem;
+}
+header nav .Home {
+    display: flex;
+    justify-content: bottom;
+    font-size: 27px;
+    font-weight: bold;
+    padding-left: 2rem;
+}
 
 /* Footer */
 
